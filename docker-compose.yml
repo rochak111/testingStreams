@@ -1,0 +1,35 @@
+version: '3.9'
+services:
+  db:
+    restart: always
+    image: postgres:latest
+    
+    ports:
+      - 5432:5432
+    environment:
+    - POSTGRES_NAME=postgres
+    - POSTGRES_USER=postgres # The PostgreSQL user (useful to connect to the database)
+    - POSTGRES_PASSWORD=postgres # The PostgreSQL password (useful to connect to the database)
+    - POSTGRES_DB=postgres # The PostgreSQL default database 
+      
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+
+
+
+  streams:
+    build: .
+    environment:
+      - DJANGO_SECRET_KEY=django-insecure-_zk=9yl=ul!po@_z-)wq&x4=&!(ons2(pogyu52+f7f37v3j$y
+      - POSTGRES_NAME=postgres
+      #- DJANGO_SETTINGS=dev
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      
+    command: python manage.py runserver 0.0.0.0:9001
+
+    ports:
+      - "9001:9001"
+    depends_on:
+      - db
