@@ -18,7 +18,9 @@ services:
 
 
   streams:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.prod
     environment:
       - DJANGO_SECRET_KEY=django-insecure-_zk=9yl=ul!po@_z-)wq&x4=&!(ons2(pogyu52+f7f37v3j$y
       - POSTGRES_NAME=postgres
