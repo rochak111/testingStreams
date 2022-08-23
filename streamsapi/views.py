@@ -10,13 +10,9 @@ from .serializers import MatchesSerializer
 
 # Create your views here.
 class ListMatches(generics.ListCreateAPIView):
-<<<<<<< HEAD
-    queryset = Matches.whattoshow
-=======
-    queryset = Matches.objects.values_list('title','description')
->>>>>>> aa63255a9bd79e372851ebad6591ce24513862b0
+    queryset = Matches.objects.all()
     serializer_class = MatchesSerializer
 
 class DetailMatches(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Matches.whattoshow
+    queryset = Matches.objects.all()
     serializer_class = MatchesSerializer
