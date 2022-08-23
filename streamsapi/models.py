@@ -9,6 +9,8 @@ class Matches(models.Model):
     embed_code=models.URLField()
     status=models.BooleanField(default=True)
 
+    whattoshow=[title,description,embed_code]
+
     class Meta:
         verbose_name_plural = 'Matches'
         ordering=['-match_id']
