@@ -8,7 +8,7 @@ class MatchesSerializer(serializers.ModelSerializer):
     class Meta:
         fields=(
             'id',
-            # 'match_id',
+            'match_id',
             'description',
             'embed_code',
             'status'
