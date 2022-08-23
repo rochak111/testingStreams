@@ -23,6 +23,10 @@ RUN chmod +x /usr/src/app/entrypoint.sh
 EXPOSE 9001
 RUN apt-get update \
     && apt-get install -y --no-install-recommends postgresql-client \
-     netcat
+    netcat
+
+
+COPY entrypoint.sh /usr/src/app/
+RUN chmod +x /usr/src/app/entrypoint.sh
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
 #CMD ["python", "manage.py", "runserver" , "0.0.0.0:8000"]
