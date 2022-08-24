@@ -29,7 +29,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       
-    command: python manage.py runserver 0.0.0.0:9001
+    
 
     ports:
       - "9001:9001"
